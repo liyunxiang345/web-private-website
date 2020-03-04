@@ -1,6 +1,8 @@
 <template>
   <div class="header-wrap">
-    <div class="header-floor"></div>
+    <div class="header-floor">
+      <div class="title"></div>
+    </div>
     <nav class="navigator">
       <el-menu
         class="menu-content"
@@ -59,6 +61,16 @@ export default {
     height: 170px;
     background-image: url("~@/assets/public/header.png");
     background-size: cover;
+    position: relative;
+    .title {
+      width: 220px;
+      height: 80px;
+      position: absolute;
+      left: 120px;
+      top: 40px;
+      background-image: url("~@/assets/public/title.png");
+      background-position: -20px;
+    }
   }
   .navigator {
     height: 61px;
