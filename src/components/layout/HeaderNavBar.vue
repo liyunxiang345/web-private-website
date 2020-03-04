@@ -1,6 +1,6 @@
 <template>
   <div class="header-wrap">
-    <div class="header-floor">背景图片</div>
+    <div class="header-floor"></div>
     <nav class="navigator">
       <el-menu
         class="menu-content"
@@ -57,7 +57,8 @@ export default {
 .header-wrap {
   .header-floor {
     height: 170px;
-    // background-image: url("~@/assets/public/header.png");
+    background-image: url("~@/assets/public/header.png");
+    background-size: cover;
   }
   .navigator {
     height: 61px;
