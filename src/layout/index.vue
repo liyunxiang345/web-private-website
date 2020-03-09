@@ -7,16 +7,20 @@
       <el-main>
         <router-view></router-view>
       </el-main>
-      <el-footer>Footer</el-footer>
+      <el-footer>
+        <footer-message></footer-message>
+      </el-footer>
     </el-container>
   </div>
 </template>
 <script>
-import HeaderNavBar from "@/components/layout/HeaderNavBar.vue";
+import HeaderNavBar from "@/components/layout/HeaderNavBar";
+import FooterMessage from "@/components/layout/FooterMessage";
 export default {
   name: "LayoutIndex",
   components: {
-    HeaderNavBar
+    HeaderNavBar,
+    FooterMessage
   }
 };
 </script>

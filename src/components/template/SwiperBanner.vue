@@ -13,32 +13,41 @@ export default {
       currentIndex: 0, //当前索引
       nextIndex: 1, //下一索引
       preIndex: 3, //上一索引
-      timer1: null,
-      timer2: null,
+      timer: null,
       animate: false,
       speed: 0
     };
   },
   methods: {
     swiperAnimation() {
-      this.timer1 = setInterval(() => {
-        let $swiper = document.querySelector(".swiper-content");
-        if (this.currentIndex >= 4) {
-          this.currentIndex = 0;
-          this.speed = 0;
-          $swiper.style.transition = "transform 0s";
-          $swiper.style.transform = "translate(0px)";
-          return;
+      const $swiper = document.querySelector(".swiper-content");
+      this.timer = setInterval(() => {
+        if (this.currentIndex <= 4) {
+          this.currentIndex++;
+          $swiper.style.transition = "transform 1s";
+          this.speed = this.speed - 550;
+          $swiper.style.transform = `translate(${this.speed}px)`;
         }
-        this.currentIndex++;
-        this.speed = this.speed - 550;
-        $swiper.style.transition = "transform 1s";
-        $swiper.style.transform = `translate(${this.speed}px)`;
-      }, 3000);
+      }, 5000);
     }
   },
   mounted() {
     this.swiperAnimation();
+  },
+  watch: {
+    currentIndex(val) {
+      const $swiper = document.querySelector(".swiper-content");
+      if (val > 4) {
+        console.log("准备");
+        clearInterval(this.timer);
+        console.log("立即停止");
+        $swiper.style.transition = "transform 0s";
+        $swiper.style.transform = "translate(0px)";
+        this.currentIndex = 0;
+        this.speed = 0;
+        this.swiperAnimation();
+      }
+    }
   }
 };
 </script>
