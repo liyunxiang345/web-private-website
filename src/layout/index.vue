@@ -4,7 +4,7 @@
       <el-header style="height: auto">
         <header-nav-bar></header-nav-bar>
       </el-header>
-      <el-main>
+      <el-main class="main">
         <router-view></router-view>
       </el-main>
       <el-footer>

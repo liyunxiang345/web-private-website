@@ -1,87 +1,116 @@
 <template>
   <div class="header-wrap">
-    <div class="header-floor">
-      <div class="title"></div>
-    </div>
-    <nav class="navigator">
-      <el-menu
-        class="menu-content"
-        mode="horizontal"
-        @select="handleSelect"
-        background-color="#67cf22"
-        text-color="#fff"
-      >
-        <template v-for="(item,$index) in menu_list">
-          <el-menu-item
-            v-if="item.children.length === 0"
-            :key="$index"
-            :index="item.id"
-          >{{item.name}}</el-menu-item>
-          <el-submenu v-else :key="$index" :index="item.id">
-            <template slot="title">
-              <span v-text="item.name"></span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item v-for="(little,index) in item.children" :key="index">{{little.name}}</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-        </template>
-      </el-menu>
-    </nav>
+    <el-row class="first-row">
+      <el-col class="col" :span="4"></el-col>
+      <el-col class="col" :span="16">
+        <!--title-->
+        <div class="title">
+          <div class="title-logo"></div>
+          <div class="title-text">云雾草堂</div>
+        </div>
+        <!--button-->
+        <div class="menu-btn" @click="changeMenu">
+          <span class="line-icon"></span>
+          <span class="line-icon"></span>
+          <span class="line-icon"></span>
+        </div>
+      </el-col>
+      <el-col class="col" :span="4"></el-col>
+    </el-row>
+    <transition name="menu-fade">
+      <nav class="my-nav" v-if="MENUSHOW">
+        11111
+      </nav>
+    </transition>
   </div>
 </template>
 <script>
+import {mapActions,mapGetters} from "vuex"
 export default {
+  computed:{
+    ...mapGetters("MENU",{
+      MENUSHOW: "getTipShow"
+    })
+  },
   data() {
     return {
-      menu_list: [
-        { name: "首页", id: "1", children: [] },
-        { name: "心情杂文", id: "2", children: [] },
-        {
-          name: "娱乐专区",
-          id: "3",
-          children: [
-            { name: "小游戏", id: "3-1" },
-            { name: "音乐欣赏", id: "3-2" }
-          ]
-        },
-        { name: "技术笔记", id: "4", children: [] },
-        { name: "关于我", id: "5", children: [] }
-      ]
+
     };
   },
   methods: {
-    handleSelect() {}
+    ...mapActions("MENU",["setTipShow"]),
+    changeMenu(){
+      this.setTipShow(!this.MENUSHOW);
+    }
   }
 };
 </script>
-<style lang="less">
-.header-wrap {
-  .header-floor {
-    height: 170px;
-    background-image: url("~@/assets/public/header.png");
-    background-size: cover;
-    position: relative;
-    .title {
-      width: 220px;
-      height: 80px;
-      position: absolute;
-      left: 120px;
-      top: 40px;
-      background-image: url("~@/assets/public/title.png");
-      background-position: -20px;
+<style lang="less" scoped>
+  .header-wrap{
+    width: 100%;
+    height: 60px;
+    background-color: #FFFFFF;
+    .first-row{
+      position: relative;
+      z-index: 100;
     }
-  }
-  .navigator {
-    height: 61px;
-    background-color: #67cf22;
-    position: relative;
-    .menu-content {
-      width: 1000px;
-      position: absolute;
-      top: 0;
-      left: 200px;
+    .col{
+      height: 60px;
     }
+    .title{
+      float: left;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      color: #42AA60;
+      text-shadow:  #42AA60 0 0 20px;
+      height: 60px;
+      .title-logo{
+        display: inline-block;
+        background-image: url('~@/assets/public/grass.png');
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+        float: left;
+        margin-top: 10px;
+      }
+      .title-text{
+        float: left;
+        padding-top: 20px;
+      }
+    }
+    .menu-btn{
+      display: block;
+      position: relative;
+      float: right;
+      margin-top: 20px;
+      background-color: transparent;
+      background-image: none;
+      cursor: pointer;
+      .line-icon{
+        width: 28px;
+        height: 3px;
+        background: #42AA60;
+        display: block;
+        border-radius: 1px;
+        margin-bottom: 5px;
+      }
+    }
+    nav{
+      height: 50px;
+      background-color: #FFFFFF;
+    }
+
   }
-}
+  .menu-fade-enter-active{
+    transition: all .5s ease;
+  }
+
+  .menu-fade-leave-active{
+    transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+
+  .menu-fade-enter, .menu-fade-leave-to{
+    transform: translateY(-50px);
+  }
 </style>

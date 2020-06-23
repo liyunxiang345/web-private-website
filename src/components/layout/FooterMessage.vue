@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <img class="icon" src="@/assets/public/beianicon.png" alt="">
-    <span>陕ICP备20002185号</span>
+    <a href="http://www.beian.miit.gov.cn">陕ICP备20002185号</a>
   </div>
 </template>
 <style lang="less" scoped>
