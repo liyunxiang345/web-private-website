@@ -8,9 +8,9 @@ module.exports = {
         /* 目标代理服务器地址 */
         target: 'http://cloudsor.site/',
         /* 允许跨域 */
-        changeOrigin: true,
-      },
-    },
+        changeOrigin: true
+      }
+    }
   },
 
   assetsDir: "static",

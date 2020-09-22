@@ -7,20 +7,25 @@
       <el-main class="main">
         <router-view></router-view>
       </el-main>
-      <el-footer>
+      <!-- <el-footer>
         <footer-message></footer-message>
-      </el-footer>
+      </el-footer> -->
     </el-container>
   </div>
 </template>
 <script>
 import HeaderNavBar from "@/components/layout/HeaderNavBar";
-import FooterMessage from "@/components/layout/FooterMessage";
+// import FooterMessage from "@/components/layout/FooterMessage";
 export default {
   name: "LayoutIndex",
   components: {
-    HeaderNavBar,
-    FooterMessage
+    HeaderNavBar
+    // FooterMessage
   }
 };
 </script>
+<style lang="less" scoped>
+.main{
+  padding-top: 0 !important;
+}
+</style>
