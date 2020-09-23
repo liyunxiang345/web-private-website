@@ -26,10 +26,10 @@ export default {
   data(){
     return {
       banner_list:[
-        {url: require("@/assets/banner/banner-1.jpg")},
-        {url: require("@/assets/banner/banner-2.jpg")},
-        {url: require("@/assets/banner/banner-3.jpg")},
-        {url: require("@/assets/banner/banner-4.jpg")}
+        {url: "https://website-vue.oss-cn-beijing.aliyuncs.com/image/banner-1.jpg"},
+        {url: "https://website-vue.oss-cn-beijing.aliyuncs.com/image/banner-2.jpg"},
+        {url: "https://website-vue.oss-cn-beijing.aliyuncs.com/image/banner-3.jpg"},
+        {url: "https://website-vue.oss-cn-beijing.aliyuncs.com/image/banner-4.jpg"}
       ]
     }
   },
