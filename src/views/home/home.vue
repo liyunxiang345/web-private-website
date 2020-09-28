@@ -82,7 +82,7 @@ export default {
     }
   }
   .article-list{
-    min-height: 2000px
+     min-height: 2000px
   }
 }
 </style>
