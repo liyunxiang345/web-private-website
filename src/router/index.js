@@ -3,12 +3,15 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 import homeRouter from './modules/home';
-
+import chartRouter from "./modules/chart";
+import SpriteRouter from "./modules/sprite";
 export const constantRoutes = [{
     path: '/',
     redirect: '/home'
   },
-  homeRouter
+  homeRouter,
+  chartRouter,
+  {path: '/sprite',component: () => import('@/views/sprite/sprite.vue')}
 ]
 
 const createRouter = () =>

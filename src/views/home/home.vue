@@ -21,6 +21,7 @@
 </template>
 <script>
 import ImageBanner from "@/components/template/ImageBanner";
+import Api from "@/api/userApi";
 export default {
   components: {ImageBanner},
   data(){
@@ -36,7 +37,36 @@ export default {
   methods:{
     goDown(){
       this.$refs["articles"].scrollIntoView({ behavior: "smooth"})
+    },
+    register() {
+        console.log(process.env)
+        Api.registerUser({
+            username: 'yunxiang.Lee',
+            password: 'admin'
+        }).then(res => {
+            console.log(res)
+        })
+    },
+    getUserList() {
+        Api.getUserList().then(res => {
+            console.log(res);
+        })
+    },
+    login() {
+        Api.login({ 
+            username: 'yunxiang.Lee',
+            password: 'admin'
+        }).then(res => {
+            const { accessToken, username } = res.data;
+            localStorage.setItem('access-token',accessToken);
+            localStorage.setItem('USER',username);
+        })
     }
+  },
+  mounted() {
+    //   this.login();
+      this.register();
+      this.getUserList();
   }
 };
 </script>
