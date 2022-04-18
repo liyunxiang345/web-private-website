@@ -1,0 +1,44 @@
+.generage-font-size (40) !important;
+.generage-font-size (@n, @i: -10) when(@i < @n) {
+    .font-@{i} {
+        font-size: @i * 1px;
+    }
+    .generage-font-size(@n, (@i + 1))
+}
+
+.generate-margin-padding(100) !important;
+
+.generate-margin-padding(@n, @i: -10) when (@i <= @n) {
+    .p-@{i} {
+        padding: @i / 100rem;
+    }
+    .p-t-@{i} {
+        padding-top: @i /100rem;
+    }
+    .p-b-@{i} {
+        padding-bottom: @i / 100rem;
+    }
+    .p-l-@{i} {
+        padding-left: @i / 100rem;
+    }
+    .p-r-@{i} {
+        padding-right: @i / 100rem;
+    }
+    .m-@{i} {
+        margin: @i / 100rem;
+    }
+    .m-t-@{i} {
+        margin-top: @i / 100rem;
+    }
+    .m-b-@{i} {
+        margin-bottom: @i / 100rem;
+    }
+    .m-l-@{i} {
+        margin-left: @i / 100rem;
+    }
+    .m-r-@{i} {
+        margin-right: @i / 100rem;
+    }
+
+    .generate-margin-padding(@n, (@i + 5));
+}

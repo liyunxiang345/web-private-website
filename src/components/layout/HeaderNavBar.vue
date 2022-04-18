@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <div class="header-wrap">
@@ -61,7 +62,7 @@ export default {
 <style lang="less" scoped>
   .header-wrap{
     width: 100%;
-    height: 60px;
+    height: 0.6rem;
     background-color: #FFFFFF;
     position: relative;
     z-index: 100;
@@ -70,63 +71,64 @@ export default {
       z-index: 100;
     }
     .col{
-      height: 60px;
+      height: 0.6rem;
     }
     .title{
       float: left;
       cursor: pointer;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 0.18rem;
       color: #42AA60;
-      text-shadow:  #42AA60 0 0 20px;
-      height: 60px;
+      text-shadow:  #42AA60 0 0 0.2rem;
+      height: 60 / 100rem;
       .title-logo{
         display: inline-block;
         background-image: url('~@/assets/public/grass.png');
-        width: 40px;
-        height: 40px;
+        width: 0.4rem;
+        height: 0.4rem;
         background-size: cover;
         float: left;
-        margin-top: 10px;
+        margin-top: 0.1rem;
       }
       .title-text{
         float: left;
-        padding-top: 20px;
+        padding-top: 0.2rem;
       }
     }
     .menu-btn{
       display: block;
       position: relative;
       float: right;
-      margin-top: 20px;
+      margin-top: 0.2rem;
       background-color: transparent;
       background-image: none;
       cursor: pointer;
       .line-icon{
-        width: 28px;
-        height: 3px;
+        width: 0.28rem;
+        height: 0.03rem;
         background: #42AA60;
         display: block;
-        border-radius: 1px;
-        margin-bottom: 5px;
+        border-radius: 0.01rem;
+        margin-bottom: 0.05rem;
       }
     }
 
   }
   .my-nav{
-    height: 50px;
+    height: 0.5rem;
     background-color: #FFFFFF;
     position: absolute;
     width: 100%;
     z-index: 100;
     .nav-col{
-      height: 50px;
+      height: 0.5rem;
       .menu-nav{
         float: right;
+        font-size: 0.16rem;
         .menu-item{
           display: inline-block;
           color: #42AA60;
-          padding: 15px;
+          padding: 0.15rem;
           cursor: pointer;
           &:hover{
             color: #f28241
@@ -144,6 +146,8 @@ export default {
   }
 
   .menu-fade-enter, .menu-fade-leave-to{
-    transform: translateY(-50px);
+    transform: translateY(-50 / 100rem);
   }
 </style>
+
+

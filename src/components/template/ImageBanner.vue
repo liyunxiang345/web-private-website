@@ -69,8 +69,8 @@ export default {
 	}
 }
 .image-banner{
-  width: 1440px;
-  height: 1066px;
+  width: 100%;
+  height: 10.66rem;
   .img{
     width: 100%;
     height: 100%;
